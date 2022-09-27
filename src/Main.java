@@ -14,7 +14,7 @@ public class Main {
         persons.add(new Person("Tor", "Aasland", 18));
         persons.add(new Person("Mancio", "Ficara Della Rocca Casino Billeci", 28));
 
-        Collections.sort(persons, new PersonComparator(3));
+        persons.removeIf((p) -> p.getAge() < 18);
         for (Person p : persons){
             System.out.println(p);
         }
