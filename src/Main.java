@@ -14,17 +14,7 @@ public class Main {
         persons.add(new Person("Tor", "Aasland", 18));
         persons.add(new Person("Mancio", "Ficara Della Rocca Casino Billeci", 28));
 
-        int maxWordsToCompare = 3;
-        persons.sort((o1, o2) -> {
-            if (o1.getSurNameWordsCount() < maxWordsToCompare || o2.getSurNameWordsCount() < maxWordsToCompare) {
-                if (o1.getSurNameWordsCount() < o2.getSurNameWordsCount()) {
-                    return 1;
-                } else if (o1.getSurNameWordsCount() > o2.getSurNameWordsCount()) {
-                    return -1;
-                }
-            }
-            return Integer.compare(o2.getAge(), o1.getAge());
-        });
+        Collections.sort(persons, new PersonComparator(3));
         for (Person p : persons){
             System.out.println(p);
         }
